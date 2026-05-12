@@ -1,51 +1,67 @@
 // =========================
-// MOBILE NAVIGATION
+// LOAD EVENTS AFTER COMPONENTS
 // =========================
 
-document.addEventListener("click", (e) => {
+window.addEventListener("load", () => {
 
-  const menuBtn = document.getElementById("menuBtn");
-  const navLinks = document.getElementById("navLinks");
+setTimeout(() => {
 
-  if (!menuBtn || !navLinks) return;
+// =========================
+// MOBILE NAVBAR
+// =========================
 
-  if (e.target.closest("#menuBtn")) {
+const menuBtn =
+document.getElementById("menuBtn");
 
-    navLinks.classList.toggle("active");
+const navLinks =
+document.getElementById("navLinks");
 
-  }
+if(menuBtn && navLinks){
+
+menuBtn.addEventListener("click", () => {
+
+navLinks.classList.toggle("show-menu");
 
 });
+
+}
 
 // =========================
 // CHAPTER SIDEBAR
 // =========================
 
-const chapterToggle =
-document.getElementById("chapterToggle");
+document.addEventListener("click",(e)=>{
+
+if(e.target.closest("#chapterToggle")){
 
 const chapterSidebar =
 document.getElementById("chapterSidebar");
 
-if (chapterToggle && chapterSidebar) {
+if(chapterSidebar){
 
-  chapterToggle.addEventListener("click", () => {
-
-    chapterSidebar.classList.toggle("sidebar-active");
-
-  });
+chapterSidebar.classList.toggle("show-sidebar");
 
 }
+
+}
+
+});
 
 // =========================
 // AOS
 // =========================
 
-if (typeof AOS !== "undefined") {
+if(typeof AOS !== "undefined"){
 
-  AOS.init({
-    duration: 1000,
-    once: true
-  });
+AOS.init({
+
+duration:1000,
+once:true
+
+});
 
 }
+
+},300);
+
+});

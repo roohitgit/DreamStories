@@ -68,6 +68,13 @@ img{
   1px solid rgba(255,255,255,0.08);
 }
 
+.logo{
+
+  display:flex;
+
+  align-items:center;
+}
+
 .logo img{
 
   height:70px;
@@ -83,16 +90,6 @@ img{
 .logo img:hover{
   transform:scale(1.05);
 }
-
-.logo{
-
-display:flex;
-
-align-items:center;
-
-}
-
-
 
 .nav-links{
 
@@ -122,7 +119,9 @@ align-items:center;
 
   display:none;
 
-  font-size:1.6rem;
+  font-size:30px;
+
+  color:white;
 
   cursor:pointer;
 }
@@ -429,149 +428,6 @@ align-items:center;
 }
 
 /* =========================
-   CHAPTER TOGGLE
-========================= */
-
-#chapterToggle{
-  display:none;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:768px){
-
-  .menu-btn{
-    display:block;
-  }
-
-  .nav-links{
-
-    position:absolute;
-
-    top:95px;
-    right:-100%;
-
-    flex-direction:column;
-
-    background:
-    rgba(10,10,30,0.98);
-
-    width:240px;
-
-    padding:30px;
-
-    border-radius:20px;
-
-    transition:0.4s;
-
-    z-index:1500;
-  }
-
-  .nav-links.active{
-    right:20px;
-  }
-
-  .logo img{
-    height:60px;
-  }
-
-  .hero{
-    padding-top:150px;
-  }
-
-  .stories-section{
-    padding:30px 20px 80px;
-  }
-
-  .reader-layout{
-    flex-direction:column;
-  }
-
-  .chapter-sidebar{
-
-    position:fixed;
-
-    left:-100%;
-
-    top:0;
-
-    width:260px;
-
-    height:100vh;
-
-    z-index:2000;
-
-    transition:0.4s;
-
-    background:#0b1022;
-
-    overflow-y:auto;
-
-    padding-top:120px;
-  }
-
-  .chapter-sidebar.sidebar-active{
-    left:0;
-  }
-
-  .reader-container{
-
-    margin-left:0;
-
-    width:100%;
-
-    max-width:100%;
-
-    padding:120px 25px 40px;
-  }
-
-  .reader-container h1{
-
-    font-size:2.2rem;
-
-    line-height:1.4;
-  }
-
-  .reader-container p{
-
-    font-size:1rem;
-
-    line-height:2;
-
-    max-width:100%;
-  }
-
-  #chapterToggle{
-
-    display:block;
-
-    position:fixed;
-
-    bottom:20px;
-    right:20px;
-
-    z-index:2500;
-  }
-
-  .chapter-navigation{
-
-    justify-content:center;
-
-    gap:15px;
-  }
-
-  .chapter-navigation .next-btn{
-
-    width:100%;
-
-    text-align:center;
-  }
-
-}
-
-/* =========================
    CONTACT FORM
 ========================= */
 
@@ -632,4 +488,164 @@ align-items:center;
 
   color:
   rgba(255,255,255,0.55);
+}
+
+/* =========================
+   CHAPTER TOGGLE
+========================= */
+
+#chapterToggle{
+  display:none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .menu-btn{
+    display:block;
+  }
+
+  .nav-links{
+
+    position:absolute;
+
+    top:90px;
+    right:-100%;
+
+    width:220px;
+
+    background:
+    rgba(10,10,30,0.95);
+
+    backdrop-filter:blur(10px);
+
+    flex-direction:column;
+
+    padding:30px;
+
+    gap:20px;
+
+    transition:0.3s;
+
+    border-radius:20px;
+
+    z-index:2000;
+  }
+
+  .nav-links.show-menu{
+    right:20px;
+  }
+
+  .logo img{
+    height:60px;
+  }
+
+  .hero{
+    padding-top:150px;
+  }
+
+  .stories-section{
+    padding:30px 20px 80px;
+  }
+
+  .reader-layout{
+    flex-direction:column;
+  }
+
+  .chapter-sidebar{
+
+position:fixed;
+
+left:-100%;
+
+top:0;
+
+width:280px;
+
+max-width:80%;
+
+height:100vh;
+
+background:#0b1022;
+
+padding:120px 25px 40px;
+
+overflow-y:auto;
+
+transition:left 0.3s ease;
+
+z-index:9999;
+
+box-shadow:
+0 0 40px rgba(0,0,0,0.5);
+
+}
+
+.chapter-sidebar.show-sidebar{
+
+left:0;
+
+}
+
+  .reader-container{
+
+    margin-left:0;
+
+    width:100%;
+
+    max-width:100%;
+
+    padding:120px 25px 40px;
+  }
+
+  .reader-container h1{
+
+    font-size:2.2rem;
+
+    line-height:1.4;
+  }
+
+  .reader-container p{
+
+    font-size:1rem;
+
+    line-height:2;
+
+    max-width:100%;
+  }
+
+ #chapterToggle{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+position:fixed;
+
+bottom:20px;
+right:20px;
+
+z-index:10000 !important;
+
+}
+
+  .chapter-navigation{
+
+    justify-content:center;
+
+    gap:15px;
+  }
+
+  .chapter-navigation .next-btn{
+
+    width:100%;
+
+    text-align:center;
+  }
+
 }
