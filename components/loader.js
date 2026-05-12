@@ -1,97 +1,58 @@
-// FILE: components/loader.js
+function getBasePath() {
+
+  const isGithub =
+  window.location.hostname.includes("github.io");
+
+  if (isGithub) {
+    return "/DreamStories/";
+  }
+
+  return "/";
+}
 
 async function loadComponent(id, file) {
 
   const element =
   document.getElementById(id);
 
-  if(!element) return;
+  if (!element) return;
 
-  try{
+  try {
 
     const response =
-    await fetch(file);
+    await fetch(getBasePath() + file);
 
     const data =
     await response.text();
 
     element.innerHTML = data;
 
-    initializeMenu();
-
-  }
-
-  catch(error){
+  } catch (error) {
 
     console.error(
-      "Component load failed:",
-      error
+      "Component load error:",
+      file
     );
-
   }
-
 }
 
-/* =========================
-   MOBILE MENU
-========================= */
-
-function initializeMenu(){
-
-  const menuBtn =
-  document.getElementById("menuBtn");
-
-  const navLinks =
-  document.getElementById("navLinks");
-
-  if(menuBtn && navLinks){
-
-    menuBtn.addEventListener("click", () => {
-
-      navLinks.classList.toggle("active");
-
-    });
-
-  }
-
-}
-
-/* =========================
-   MOBILE SIDEBAR
-========================= */
-
-const chapterToggle =
-document.getElementById("chapterToggle");
-
-const chapterSidebar =
-document.getElementById("chapterSidebar");
-
-if(chapterToggle && chapterSidebar){
-
-  chapterToggle.addEventListener("click", () => {
-
-    chapterSidebar.classList.toggle(
-      "sidebar-active"
-    );
-
-  });
-
-}
-
-/* =========================
-   LOAD NAVBAR
-========================= */
+/* NAVBAR */
 
 loadComponent(
   "navbar-container",
-  "/components/navbar.html"
+  "components/navbar.html"
 );
 
-/* =========================
-   LOAD FOOTER
-========================= */
+/* FOOTER */
 
 loadComponent(
   "footer-container",
-  "/components/footer.html"
+  "components/footer.html"
+);
+
+/* SIDEBAR */
+
+loadComponent(
+  "sidebar-container",
+  "stories/space-odyssey/season-1/sidebar.html"
 );
