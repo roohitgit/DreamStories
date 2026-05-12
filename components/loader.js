@@ -1,15 +1,3 @@
-function getBasePath() {
-
-  const isGithub =
-  window.location.hostname.includes("github.io");
-
-  if (isGithub) {
-    return "/DreamStories/";
-  }
-
-  return "/";
-}
-
 async function loadComponent(id, file) {
 
   const element =
@@ -20,7 +8,7 @@ async function loadComponent(id, file) {
   try {
 
     const response =
-    await fetch(getBasePath() + file);
+    await fetch(BASE_PATH + file);
 
     const data =
     await response.text();
